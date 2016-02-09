@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Curious Scientists</title>
+
+    <!-- Include skewer.js as a script -->
+    <!-- <script type="text/javascript" src="http://localhost:8080/skewer"></script> -->
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,100,700,900,400italic" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/alasql/0.2/alasql.min.js"></script>
+    <script type="text/javascript" src="//coffeescript.org/extras/coffee-script.js"></script>
+    <script type="text/javascript" src="scripts/ace/src-noconflict/ace.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/railscasts.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+
+    <link type="text/css" href="scripts/jspkg/jquery.dynatable.css" rel="stylesheet"/>
+    <script type="text/javascript" src="scripts/jspkg/jquery.dynatable.js"></script>
+
+    <link   type="text/css"        href="styles/curiouser.css" rel="stylesheet"/>
+    <script type="text/coffeescript" src="scripts/curiouser.coffee"></script>
+  </head>
+  <body>
+    <h1>Curious Scientists:
+      <span class="subtitle">
+        Toying with Databases at Sellwood Middle School
+      </span>
+    </h1>
+
+    <div id="instructions">
+      <p>
+        In order to use this system, you need to specify a database to
+        load and use.
+      </p>
+      <p>
+        This is done with a unique <i>anchor reference</i> to this page.
+        For instance, check out the <a href="#sandbox">#sandbox</a>
+        database for a simple example of what this can do.
+      </p>
+    </div>
+    <div id="technical-side">
+      <div name="editor" id="editor"></div>
+      <div id="editor-toolbar">
+        <button id="run-code">Run</button>
+      </div>
+      <div id="results-section">
+        <table id="results-table"></table>
+      </div>
+    </div>
+  </body>
+</html>

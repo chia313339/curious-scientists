@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sandbox</title>
+  </head>
+  <body>
+    <h2>Sandbox</h2>
+    <p>
+      Simple experiment for playing around with a small database.
+    </p>
+    <p>
+      We've created a single table, <code>cities</code> that has a few
+      cities and their population. It has two fields, <i>city</i>
+      and <i>population</i>.
+    </p>
+    <p>
+      Type the following to see the cities available:
+    </p>
+    <pre>
+      SELECT city FROM cities
+    </pre>
+    <p>
+      You can see both fields in the database by typing:
+    </p>
+    <pre>
+      SELECT city, population FROM cities
+    </pre>
+    <p>
+      Might be easier to type this instead:
+    </p>
+    <pre>
+      SELECT * FROM cities
+    </pre>
+    <p>
+      The <code>*</code> character means to display all the fields in
+      the database row.
+    </p>
+    <img src="data/sandbox/paris.jpg" alt="Eiffel Tower in Paris, France"/>
+  </body>
+</html>

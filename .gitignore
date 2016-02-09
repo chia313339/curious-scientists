@@ -1,0 +1,15 @@
+/target
+/lib
+/classes
+/checkouts
+pom.xml
+pom.xml.asc
+*.jar
+*.class
+/.lein-*
+/.nrepl-port
+/install
+/resources/public/scripts/ace
+/resources/public/scripts/jspkg
+/resources/public/data/dolphins/oasis.csv
+/resources/public/data/dolphins/oasis.json

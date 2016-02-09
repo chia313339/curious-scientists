@@ -1,0 +1,63 @@
+#+TITLE:  The Curious Scientist
+#+AUTHOR: Howard Abrams
+#+EMAIL:  howard.abrams@gmail.com
+#+DATE:   2016 Jan 17
+#+TAGS:   web education clojure
+
+* General Notes
+
+  While we generated a /Compojure/ web application, this is primarily an
+  [[http://incanter.org][Incanter project]], as the Clojure aspect generates the data that the
+  front-end web application downloads and consumes using the [[https://github.com/agershun/alasql/][AlaSQL]]
+  client database.
+
+* Web Interface
+
+  Each lesson will be available on a single HTML page.
+  - Load either [[https://github.com/kripken/sql.js/][SQLite for JS]] or [[https://github.com/agershun/alasql][AlaSQL]]
+  - Use either [[https://github.com/ajaxorg/ace][Ace Editor]] ([[https://ace.c9.io][web site]]) for the Cloud9 Interface
+
+  Should we do a standard page, and then have the individual stuff
+  downloaded?
+
+* Development
+
+  Using Emacs with =csv-mode=
+
+* Lesson 1: Dolphins
+
+  The /trick/ is that the query should search for dolphins fed earlier
+  than the last 4 hours ... not today, even though the text of the
+  question will be today.
+
+  Each [[https://en.wikipedia.org/wiki/Bottlenose_dolphin][Dolphin]] record should have the following fields (created by [[file:src/curiouser/hungry_dolphins.clj][Clojure]]):
+
+  - ID :: Some random number between 1000 and 5000
+  - Name :: String
+  - Last Fed :: Timestamp that alasql understands
+  - Weight :: Integer between 150 and 650 kg
+  - Length :: Float between 2 and 4 m
+  - Age :: Approximate ... date arrived?
+  - Sex :: male or female (based on name?)
+  - Dolphin Species (enumerated list)
+    - Bottlenose (common) 40%
+    - Common (uncommon) 20%
+    - Atlantic Spotted Dolphin (uncommon) 20%
+    - Striped dolphin 10%
+    - Clymene dolphin
+    - Spinner dolphin
+    - False killer whale (rare)
+  - Stay (in days ... purely random?)
+  - Modify length/weight based on species (and maybe age)
+  - Fix Date to be in YYYYMMDDHHMMSS format
+    See http://stackoverflow.com/questions/31151589/how-do-you-create-a-time-field-in-alasql
+
+* Lesson 2: Arsenic and Old Moss
+
+  What is the highest level of airborne arsenic
+  Maybe other chemicals
+  What year were they lowest?
+  When we're they elevated?
+
+  Major polluters and their chemicals
+  New business licenses with date range and area .... How do we query areas? By neighborhood name? Good enough.

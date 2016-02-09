@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The Dolphin Oasis</title>
+  </head>
+  <body>
+    <h2>The Dolphin Oasis</h2>
+    <p>
+      Welcome to the Dolphin Oasis, where we have been healing
+      hundreds of injured dolphins from around our area.
+
+      We have a database of information about our dolphins in a table
+      labeled, <code>dolphins</code> with the following fields:
+    </p>
+    <dl>
+      <dt> <code>name</code> </dt>
+      <dd> Each one has a story to tell </dd>
+      <dt> <code>weight</code> </dt>
+      <dd> in kilograms (actually its mass) </dd>
+      <dt> <code>length</code> </dt>
+      <dd> in meters </dd>
+      <dt> <code>last-fed</code> </dt>
+      <dd>
+        The last time the dolphin had been fed. They are fed in the
+        morning when our care-givers arrive at 5:00am, and should be fed
+        after 4 hours, but no longer than every 6 hours.
+      </dd>
+    </dl>
+    <div class="question">
+      <p>
+        Can you tell me how many dolphins we have at our oasis?
+      </p>
+      <pre class="hidden"><code class="sql">SELECT COUNT(name) as dolphins FROM dolphins</code></pre>
+    </div>
+    <div class="question">
+      <p>
+        Can you figure out the average weight and length of our
+        dolphins, and with that information guess what kind of dolphins
+        we care for?
+      </p>
+      <pre class="hidden"><code class="sql">SELECT AVG(length) AS avg_length,
+       AVG(weight) AS avg_weight FROM dolphins</code></pre>
+    </div>
+    <p>
+      Thanks so much for helping!
+    </p>
+    <img src="data/dolphins/bottlenose.jpg" alt="Flora, one of our Bottlenose Dolphins"/>
+  </body>
+</html>
