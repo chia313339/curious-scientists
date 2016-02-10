@@ -15,35 +15,111 @@
     <dl>
       <dt> <code>name</code> </dt>
       <dd> Each one has a story to tell </dd>
+      <dt> <code>species</code></dt>
+      <dd> The type of dolphin specie.</dd>
+      <dt> <code>gender</code></dt>
+      <dd> Single letter, <code>m</code> or <code>f</code></dd>
       <dt> <code>weight</code> </dt>
-      <dd> in kilograms (actually its mass) </dd>
+      <dd> in kilograms (actually its mass)</dd>
       <dt> <code>length</code> </dt>
-      <dd> in meters </dd>
-      <dt> <code>last-fed</code> </dt>
+      <dd> in meters as decimal value </dd>
+      <dt> <code>stay</code></dt>
+      <dd> number of days the dolphin has been with us</dd>
+      <dt> <code>lastfed</code> </dt>
       <dd>
-        The last time the dolphin had been fed. They are fed in the
+        last time the dolphin had been fed. They are fed in the
         morning when our care-givers arrive at 5:00am, and should be fed
         after 4 hours, but no longer than every 6 hours.
       </dd>
     </dl>
+
     <div class="question">
       <p>
         Can you tell me how many dolphins we have at our oasis?
+        (You'll need the <code>COUNT</code> function)
       </p>
-      <pre class="hidden"><code class="sql">SELECT COUNT(name) as dolphins FROM dolphins</code></pre>
+      <pre class="hidden"><code class="sql">SELECT COUNT(name) as dolphins FROM oasis</code></pre>
     </div>
+
+    <div  class="question">
+      <p>
+        Can you tell me how many Striped dolphins we have? Striped
+        dolphins are a species of dolphins
+        (see <a href="http://seawatchfoundation.org.uk/wp-content/uploads/2012/07/StripedDolphin1.jpg">this picture</a>).
+      </p>
+      <pre class="hidden"><code class="sql">SELECT COUNT(name) as spotted FROM oasis
+ WHERE species="Striped dolphin"</code></pre>
+    </div>
+
     <div class="question">
       <p>
-        Can you figure out the average weight and length of our
-        dolphins, and with that information guess what kind of dolphins
-        we care for?
+        Can use use the <code>GROUP BY</code> command to tell me
+        how many males and how many female dolphins we have?  Why
+        do you think it isn't equal numbers? (<b>Hint:</b> Since we
+        rehabilitate injured dolphins, perhaps one gender gets
+        hurt more)
       </p>
-      <pre class="hidden"><code class="sql">SELECT AVG(length) AS avg_length,
-       AVG(weight) AS avg_weight FROM dolphins</code></pre>
+      <pre class="hidden"><code class="sql">SELECT gender,COUNT(gender)
+  FROM oasis GROUP BY gender;</code></pre>
+    </div>
+
+    <div class="question">
+      <p>
+        Can you use the <code>GROUP BY</code> <i>and</i> <code>ORDER
+        BY</code> commands to tell me how many of each kind of dolphin
+        we have at The Oasis?  Do you know why we might have more
+        Bottlenose dolphins than others?
+      </p>
+      <pre class="hidden"><code class="sql">SELECT species,COUNT(species) as how_many
+  FROM oasis GROUP BY species
+  ORDER BY how_many DESC;</code></pre>
+    </div>
+
+    <div class="question">
+      <p>
+        Can you figure out the average weight and length of each
+        species and gender of dolphins we care for?
+      </p>
+      <pre class="hidden"><code class="sql">SELECT species,gender,
+       AVG(length) AS avg_length,
+       AVG(weight) AS avg_weight
+  FROM oasis
+ GROUP BY species,gender ORDER BY species</code></pre>
+      <p>
+        Compare your table to the length and weight of each species to
+        the following table of wild dolphins:
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th rowspan="2">Species</th>
+            <th colspan="2">Length (m)</th>
+            <th colspan="2">Weight (kg)</th>
+          </tr>
+          <tr>
+            <th>Female</th>
+            <th>Male</th>
+            <th>Female</th>
+            <th>Male</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Bottlenose dolphin</td><td class="decimal">2.9</td><td class="decimal">3.2</td><td class="integer">360</td><td class="integer">440</td></tr>
+          <tr><td>Common dolphin</td><td class="decimal">2.1</td><td class="decimal">2.3</td><td class="integer">100</td><td class="integer">130</td></tr>
+          <tr><td>Atlantic Spotted dolphin</td><td class="decimal">2.1</td><td class="decimal">2.0</td><td class="integer">120</td><td class="integer">110</td></tr>
+          <tr><td>Striped dolphin</td><td class="decimal">2.4</td><td class="decimal">2.8</td><td class="integer">150</td><td class="integer">160</td></tr>
+          <tr><td>Clymene dolphin</td><td class="decimal">2.0</td><td class="decimal">2.0</td><td class="integer">75</td><td class="integer">80</td></tr>
+          <tr><td>Central American Spinner dolphin</td><td class="decimal">1.3</td><td class="decimal">2.4</td><td class="integer">48</td><td class="integer">53</td></tr>
+          <tr><td>False Killer Whale</td><td class="decimal">4.7</td><td class="decimal">5.1</td><td class="integer">900</td><td class="integer">1700</td></tr>
+          <tr><td>Rough-toothed dolphin</td><td class="decimal">2.5</td><td class="decimal">2.7</td><td class="integer">122</td><td class="integer">130</td></tr>
+          <tr><td>Risso's dolphin</td><td class="decimal">3.0</td><td class="decimal">3.1</td><td class="integer">400</td><td class="integer">450</td></tr>
+          <tr><td>Fraser's dolphin</td><td class="decimal">2.8</td><td class="decimal">2.9</td><td class="integer">190</td><td class="integer">210</td></tr>
+        </tbody>
+      </table>
     </div>
     <p>
       Thanks so much for helping!
     </p>
-    <img src="data/dolphins/bottlenose.jpg" alt="Flora, one of our Bottlenose Dolphins"/>
+    <img src="data/dolphins/bottlenose.jpg" alt="Flora, one of our Bottlenose Dolphins" style="clear:both"/>
   </body>
 </html>
