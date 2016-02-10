@@ -47,7 +47,8 @@
         dolphins are a species of dolphins
         (see <a href="http://seawatchfoundation.org.uk/wp-content/uploads/2012/07/StripedDolphin1.jpg">this picture</a>).
       </p>
-      <pre class="hidden"><code class="sql">SELECT COUNT(name) as spotted FROM oasis
+      <pre class="hidden"><code class="sql">SELECT COUNT(name) as stripies
+  FROM oasis
  WHERE species="Striped dolphin"</code></pre>
     </div>
 
@@ -60,7 +61,7 @@
         hurt more)
       </p>
       <pre class="hidden"><code class="sql">SELECT gender,COUNT(gender)
-  FROM oasis GROUP BY gender;</code></pre>
+  FROM oasis GROUP BY gender</code></pre>
     </div>
 
     <div class="question">
@@ -72,7 +73,7 @@
       </p>
       <pre class="hidden"><code class="sql">SELECT species,COUNT(species) as how_many
   FROM oasis GROUP BY species
-  ORDER BY how_many DESC;</code></pre>
+  ORDER BY how_many DESC</code></pre>
     </div>
 
     <div class="question">
