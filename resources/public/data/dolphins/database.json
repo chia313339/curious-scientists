@@ -1,12 +1,10 @@
 [
     { "database": "oasis",
       "file": "oasis.csv",
-      "schema": "( id INTEGER, name VARCHAR(20), species VARCHAR(35),
-gender VARCHAR(1), weight INTEGER, length DECIMAL stay INTEGER,
-lastfed DATETIME)"
-    }
+      "schema": "( id INTEGER, name VARCHAR(20), species VARCHAR(35), gender VARCHAR(1), weight INTEGER, length DECIMAL, stay INTEGER, lastfed DATETIME )"
+    },
     { "database": "dolphins",
       "file": "dolphins.csv",
-      "schema": "( id INTEGER, name VARCHAR(35), avgflength DECIMAL, avgmlength DECIMAL, avgfweight INTEGER, avgmweight INTEGER)"
+      "schema": "( id INTEGER, name VARCHAR(35), avg_f_length DECIMAL, avg_m_length DECIMAL, avg_f_weight INTEGER, avg_m_weight INTEGER )"
     }
 ]

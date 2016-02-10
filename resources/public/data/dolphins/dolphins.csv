@@ -1,4 +1,4 @@
-id,name,flength,mlength,fweight,mweight
+id,name,avg_f_length,avg_m_length,avg_f_weight,avg_m_weight
 59,Bottlenose dolphin,2.9,3.2,360,440
 34,Common dolphin,2.1,2.3,100,130
 23,Atlantic Spotted dolphin,2.1,2.0,120,110
