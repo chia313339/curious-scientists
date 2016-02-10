@@ -10,8 +10,14 @@ hideAnswers = ->
         $(".hidden").after('<button class="answer">Answer</button>')
         $(".hidden").hide()
         $(".answer").click ->
-                $(this).hide().prev(".hidden").show("slow").
-                each( (i, block) -> hljs.highlightBlock(block) )
+                codeblk = $(this).hide().prev(".hidden")
+                codeblk.after('<button class="copy">Copy</button>')
+                codeblk.show("slow").each(
+                        (i, block) -> hljs.highlightBlock(block) )
+                $(".copy").click(copyAnswer)
+
+copyAnswer = ->
+        editor.setValue( $(this).prev(".hidden").text() )
 
 # Download and insert into the Editor an initialization script
 loadInitialCode = (project) ->
