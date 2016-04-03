@@ -106,3 +106,10 @@ td {
 .integer {
     text-align: right;
 }
+
+.error {
+    white-space: pre-wrap;
+    font-family: monospace;
+    color: #c00;
+    margin-top: 12px;
+}

@@ -81,25 +81,35 @@ extractHeader = (row) ->
 runCode = ->
         sql = editor.getValue()
         console.log("SQL Query", sql)
-        records = alasql(sql)
-        console.log("SQL Records", records)
-        if (records[0])
-                headers = extractHeader(records[0])
-                $("#results-table").remove()
-                $("#results-section").html("<table id='results-table'></table>")
-                $("#results-table").html(headers)
-                $('#results-table').bind('dynatable:init', (e,dynatable) ->
-                        console.log(dynatable.utility)
-                        dynatable.utility.textTransform.tox = (text) ->
-                                console.log("Huh", text)
-                                text.replace(/a/, 'x')
-                ).dynatable({
-                        dataset: {
-                                records: records
-                        }
-                })
+        try
+            records = alasql(sql)
+            console.log("SQL Records", records)
+            if (records[0])
+                    headers = extractHeader(records[0])
+                    $("#results-table").remove()
+                    $("#results-section").html("<table id='results-table'></table>")
+                    $("#results-table").html(headers)
+                    $('#results-table').bind('dynatable:init', (e,dynatable) ->
+                            console.log(dynatable.utility)
+                            dynatable.utility.textTransform.tox = (text) ->
+                                    console.log("Huh", text)
+                                    text.replace(/a/, 'x')
+                    ).dynatable({
+                            dataset: {
+                                    records: records
+                            }
+                    })
+        catch error
+                $("#results-section").html("<div class='error'>#{error}</div>")
+
+readjustViewport = ->
+        sectionHeight = $("body").innerHeight() - $("h1").height() * 2
+        $("#instructions").height(sectionHeight)
 
 $(->
+    # Readjust the height of the instructions:
+    readjustViewport()
+
     # INITIALIZATION: Based on the anchor reference (the HTML's hash
     # tag), we download the instructions and preload the database:
     database = location.hash.substring(1)
@@ -108,8 +118,8 @@ $(->
     loadDatabases(database)
 
     # EVENTS:
+    $(window).resize(readjustViewport);
     $("#run-code").click(runCode)
-    # $(window).resize(readjustEditor);
 
     $.dynatableSetup({
             features: {
