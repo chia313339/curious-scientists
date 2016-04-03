@@ -9,27 +9,27 @@
       Welcome to the Dolphin Oasis, where we have been healing
       hundreds of injured dolphins from around our area.
 
-      We have a database of information about our dolphins in a table
-      labeled, <code>dolphins</code> with the following fields:
+      We have a database of information about our current residents in
+      a table labeled, <code>oasis</code> with the following fields:
     </p>
     <dl>
       <dt> <code>name</code> </dt>
       <dd> Each one has a story to tell </dd>
       <dt> <code>species</code></dt>
-      <dd> The type of dolphin specie.</dd>
+      <dd> Like "Bottlenose dolphin" or "False Killer Whale"</dd>
       <dt> <code>gender</code></dt>
       <dd> Single letter, <code>m</code> or <code>f</code></dd>
       <dt> <code>weight</code> </dt>
-      <dd> in kilograms (actually its mass)</dd>
+      <dd> In kilograms (actually its mass)</dd>
       <dt> <code>length</code> </dt>
-      <dd> in meters as decimal value </dd>
+      <dd> In meters as decimal value </dd>
       <dt> <code>stay</code></dt>
-      <dd> number of days the dolphin has been with us</dd>
+      <dd> Number of days the injured animal has been with us</dd>
       <dt> <code>lastfed</code> </dt>
       <dd>
-        last time the dolphin had been fed. They are fed in the
-        morning when our care-givers arrive at 5:00am, and should be fed
-        after 4 hours, but no longer than every 6 hours.
+        They are fed in the morning when our care-givers arrive at
+        5:00am, and should be fed after 4 hours, but no longer than
+        every 6 hours.
       </dd>
     </dl>
 
@@ -44,7 +44,7 @@
     <div  class="question">
       <p>
         Can you tell me how many Striped dolphins we have? Striped
-        dolphins are a species of dolphins
+        is a species
         (see <a href="http://seawatchfoundation.org.uk/wp-content/uploads/2012/07/StripedDolphin1.jpg">this picture</a>).
       </p>
       <pre class="hidden"><code class="sql">SELECT COUNT(name) as stripies
@@ -55,9 +55,9 @@
     <div class="question">
       <p>
         Can use use the <code>GROUP BY</code> command to tell me
-        how many males and how many female dolphins we have?  Why
-        do you think it isn't equal numbers? (<b>Hint:</b> Since we
-        rehabilitate injured dolphins, perhaps one gender gets
+        how many males and how many females we have?  Why
+        do you think the proportion isn't equal? (<b>Hint:</b> Since we
+        rehabilitate injured animals, perhaps one gender gets
         hurt more)
       </p>
       <pre class="hidden"><code class="sql">SELECT gender,COUNT(gender)
@@ -69,7 +69,7 @@
         Can you use the <code>GROUP BY</code> <i>and</i> <code>ORDER
         BY</code> commands to tell me how many of each kind of dolphin
         we have at The Oasis?  Do you know why we might have more
-        Bottlenose dolphins than others?
+        Bottlenoses than others?
       </p>
       <pre class="hidden"><code class="sql">SELECT species,COUNT(species) as how_many
   FROM oasis GROUP BY species
@@ -79,7 +79,7 @@
     <div class="question">
       <p>
         Can you figure out the average weight and length of each
-        species and gender of dolphins we care for?
+        species and gender we care for?
       </p>
       <pre class="hidden"><code class="sql">SELECT species,gender,
        AVG(length) AS avg_length,
